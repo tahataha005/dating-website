@@ -13,6 +13,7 @@
 
 .btn{
     cursor: pointer;
+    border: 0;
 }
 
 .flex{
@@ -70,4 +71,14 @@
     color: crimson;
     cursor: pointer;
     margin-left: 1vh;
+}
+
+.login-btn{
+    width: 90px;
+    height: 30px;
+    margin-bottom: 3vh;
+    border: 0;
+    background-color: crimson;
+    color: white;
+    font-size: 22px;
 }
