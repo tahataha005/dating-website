@@ -28,6 +28,10 @@
     flex-direction: row;
 }
 
+.hide{
+    display: none;
+}
+
 /* Landing Page(Register Page) */
 
 .container{
@@ -40,9 +44,12 @@
     background-repeat: no-repeat;
 }
 
-.login-container{
+.register-content{
     width: 30%;
     background-color: rgb(255, 255, 255,0.7);
+}
+
+.login-container{
     padding: 5vh;
 }
 
