@@ -1,0 +1,15 @@
+/* CSS reset */
+
+*{
+    margin: 0;
+}
+
+/* Utilities */
+
+.round-edges{
+    border-radius: 20px;
+}
+
+.btn{
+    cursor: pointer;
+}
