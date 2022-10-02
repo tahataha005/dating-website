@@ -28,8 +28,18 @@
     flex-direction: row;
 }
 
+.grow{
+    flex-grow: 1;
+}
+
 .hide{
     display: none;
+}
+
+.radio{
+    height: 15px;
+    width: 15px;
+    margin: 1vh;
 }
 
 /* Landing Page(Register Page) */
@@ -47,9 +57,6 @@
 .register-content{
     width: 30%;
     background-color: rgb(255, 255, 255,0.7);
-}
-
-.login-container{
     padding: 5vh;
 }
 
@@ -73,13 +80,6 @@
     width: 100%;
 }
 
-.login-container >div > label{
-    text-decoration: underline;
-    color: crimson;
-    cursor: pointer;
-    margin-left: 1vh;
-}
-
 .login-btn{
     width: 90px;
     height: 30px;
@@ -88,4 +88,49 @@
     background-color: crimson;
     color: white;
     font-size: 20px;
+    margin: 2vh 2vh 2vh 0;
+}
+
+.signup-popup-btn{
+    text-decoration: underline;
+    color: crimson;
+    cursor: pointer;
+    margin-left: 1vh;
+}
+
+/* Signup Content*/
+
+.signup-container > label{
+    font-size: 30px;
+}
+
+.signup-container > input{
+    width: 100%;
+    height: 30px;
+    margin: 2vh 0 5vh 0;
+}
+
+.signup-popup-btn{
+    text-decoration: underline;
+    color: crimson;
+    cursor: pointer;
+    margin-left: 1vh;
+}
+
+.gender > label{
+    font-size: 30px;
+}
+
+.gender > div{
+    align-items: center;
+    justify-content: center;
+}
+
+.interested > label{
+    font-size: 30px;
+}
+
+.interested > div{
+    align-items: center;
+    justify-content: center;
 }
