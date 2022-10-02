@@ -11,7 +11,7 @@
     
     <div class="container flex">
         <div class="register-content round-edges">
-            <div class="login-container flex column hide">    
+            <div id="login-content" class="login-container flex column">    
                 <p class="login-title">Login</p>
                 <label for="login-username">Username</label>
                 <input id="login-username" class="input round-edges" type="text">
@@ -20,11 +20,11 @@
                 <button id="login-btn" class="login-btn round-edges">Login</button>
                 <div class="flex row">
                     <p>Don't have an account?</p>
-                    <label class="signup-popup-btn">Sign Up</label>
+                    <label id="signup-content-btn" class="content-btn">Sign Up</label>
                 </div>
             </div>
             
-            <div class="signup-container flex column">    
+            <div id="signup-content" class="signup-container flex column hide">    
                 <p class="login-title">Sign Up</p>
                 <label for="login-username">Full Name</label>
                 <input id="login-username" class="input round-edges" type="text">
@@ -46,18 +46,18 @@
                 <div class="interested flex row">
                     <label>Interested in:</label>
                     <div class="flex row grow">
-                        <input type="radio" name="gender" value="Male" class="radio">
+                        <input type="radio" name="interested" value="Male" class="radio">
                         <label for="gender">Male</label>
                     </div>
                     <div class="flex row grow">
-                        <input type="radio" name="gender" value="Female" class="radio">
+                        <input type="radio" name="interested" value="Female" class="radio">
                         <label for="css">Female</label>
                     </div>
                 </div>
                 <button id="login-btn" class="login-btn round-edges">Sign Up</button>
                 <div class="flex row">
                     <p>Already have an account?</p>
-                    <label class="signup-popup-btn">login</label>
+                    <label id="login-content-button" class="content-btn">login</label>
                 </div>
             </div>
         </div>
