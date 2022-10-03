@@ -13,6 +13,7 @@
 
 .btn{
     cursor: pointer;
+    border: 0;
 }
 
 .flex{
@@ -25,4 +26,111 @@
 
 .row{
     flex-direction: row;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.hide{
+    display: none;
+}
+
+.radio{
+    height: 15px;
+    width: 15px;
+    margin: 1vh;
+}
+
+/* Landing Page(Register Page) */
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/dating-frontend/assets/landing-page-wallpaper.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.register-content{
+    width: 30%;
+    background-color: rgb(255, 255, 255,0.7);
+    padding: 5vh;
+}
+
+.login-title{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.login-container > label{
+    font-size: 30px;
+}
+
+.login-container > input{
+    width: 100%;
+    height: 30px;
+    margin: 2vh 0 5vh 0;
+}
+
+.login-container >div{
+    width: 100%;
+}
+
+.login-btn{
+    width: 90px;
+    height: 30px;
+    margin-bottom: 3vh;
+    border: 0;
+    background-color: crimson;
+    color: white;
+    font-size: 20px;
+    margin: 2vh 2vh 2vh 0;
+}
+
+.content-btn{
+    text-decoration: underline;
+    color: crimson;
+    cursor: pointer;
+    margin-left: 1vh;
+}
+
+/* Signup Content*/
+
+.signup-container > label{
+    font-size: 30px;
+}
+
+.signup-container > input{
+    width: 100%;
+    height: 30px;
+    margin: 2vh 0 5vh 0;
+}
+
+.signup-popup-btn{
+    text-decoration: underline;
+    color: crimson;
+    cursor: pointer;
+    margin-left: 1vh;
+}
+
+.gender > label{
+    font-size: 30px;
+}
+
+.gender > div{
+    align-items: center;
+    justify-content: center;
+}
+
+.interested > label{
+    font-size: 30px;
+}
+
+.interested > div{
+    align-items: center;
+    justify-content: center;
 }
