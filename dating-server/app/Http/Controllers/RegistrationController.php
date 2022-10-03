@@ -9,6 +9,6 @@ use App\Models\User;
 class RegistrationController extends Controller{
     
     function users(){
-        return User::all();
+        return response()->json(User::all());
     }
 }
