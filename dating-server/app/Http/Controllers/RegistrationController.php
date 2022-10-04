@@ -18,11 +18,11 @@ class RegistrationController extends Controller{
 
         if($user->isEmpty()){
             return response()->json([
-                "status","Failed"
+                "status"=>"Failed"
             ]);
         } else{
             return response()->json([
-                "status","Success"
+                "status"=>"Success"
             ]);
         }
     }
@@ -47,17 +47,17 @@ class RegistrationController extends Controller{
 
                 if ($user->save()){
                     return response()->json([
-                        "Status"=>"Success"
+                        "status"=>"Success"
                     ]);
                 } else{
                     return response()->json([
-                        "Status"=>"Failed"
+                        "status"=>"Failed"
                     ]);
                 }
             
         }else{
             return response()->json([
-                "Status"=>"Already Exists"
+                "status"=>"Already Exists"
             ]);
         }
 
