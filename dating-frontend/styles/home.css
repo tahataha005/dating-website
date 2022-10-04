@@ -1,0 +1,67 @@
+/* CSS reset */
+
+*{
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Utilities */
+
+.round-edges{
+    border-radius: 20px;
+}
+
+.btn{
+    cursor: pointer;
+    border: 0;
+}
+
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.hide{
+    display: none;
+}
+
+.radio{
+    height: 15px;
+    width: 15px;
+    margin: 1vh;
+}
+
+.dark-bg{
+    background-color: rgb(100,0,2);
+}
+
+.light-bg{
+    background-color: rgb(255,233,233);
+}
+
+.light-bg{
+    color: rgb(100,0,2);
+}
+
+.light-txt{
+    color: rgb(255,233,233);
+}
+/* Home Page */
+
+.container{
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
