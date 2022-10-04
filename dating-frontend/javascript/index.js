@@ -117,3 +117,16 @@ pages.load_register = async () => {
         console.log(response)
     })
 }
+
+pages.load_home = async () => {
+    const wrapper = document.getElementById("wrapper");
+    const load_interested_url = `${pages.baseURL}/home`
+    const username = new URLSearchParams;
+    username.append("username","mohammad")
+    const interested_users = await pages.postAPI(load_interested_url,username);
+    console.log(interested_users)
+
+    // for(let i = 0;i < interested_users.length;i++){
+    //     console.log(interested_users[i]);
+    // }
+}
