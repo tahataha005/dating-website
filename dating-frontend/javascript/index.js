@@ -40,6 +40,24 @@ pages.loadFor = (page) => {
     eval("pages.load_" + page + "();");
 }
 
+const load_user_cards = (users,wrapper) =>{
+    for(let i = 0;i<users.length;i++){
+        wrapper.innerHTML +=`<div class="contact-card light-bg round-edges">
+                                <div class="card-contents flex column">
+                                    <div class="picture">
+                                        <img src="" alt="">
+                                    </div>
+                                    <p>${users[i].username}</p>
+                                    <div class="center-bottom-card flex row">
+                                        <button data-value="${users[i].id}" class="btn view-btn white-bg round-edges dark-txt">View</button>
+                                        <button data-value="${users[i].id}" class="btn fav-btn dark-bg round-edges light-txt">Like</button>
+                                    </div>
+                                </div>
+                            </div>`
+    }
+}
+
+
 pages.load_register = async () => {
 
     const login_container = document.getElementById("login-content")
@@ -50,7 +68,7 @@ pages.load_register = async () => {
     const login_password = document.getElementById("login-pass");
     const login_btn = document.getElementById("login-btn");
     const signup_btn = document.getElementById("signup-btn");
-    const login_url = `${pages.baseURL}/login`;
+    const login_url = `${pages.baseURL}/register/login`;
     const login_error = document.getElementById("login-error");
 
     const registration_content = () => {
@@ -82,7 +100,7 @@ pages.load_register = async () => {
     
     signup_btn.addEventListener("click", async () => {
 
-        const signup_url = `${pages.baseURL}/signup`
+        const signup_url = `${pages.baseURL}/register/signup`
         const signup_fullname = document.getElementById("signup-fullname");
         const signup_username = document.getElementById("signup-username");
         const signup_pass = document.getElementById("signup-pass");
@@ -116,4 +134,17 @@ pages.load_register = async () => {
         const response = await pages.postAPI(signup_url,api_data);
         console.log(response)
     })
+}
+
+pages.load_home = async () => {
+    const wrapper = document.getElementById("wrapper");
+    const load_interested_url = `${pages.baseURL}/home`
+    
+    const username = new URLSearchParams;
+    username.append("username","nohaMiari");
+    const interested_users = await pages.postAPI(load_interested_url,username);
+    load_user_cards(interested_users.data,wrapper);
+    
+    const view_btns = document.querySelectorAll(".view-btn");
+    const fav_btns = document.querySelectorAll(".fav-btn");
 }

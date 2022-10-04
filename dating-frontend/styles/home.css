@@ -165,6 +165,7 @@
 .feed{
     width: 80%;
     align-items: center;
+    justify-content: space-between;
 }
 /* Contact Card */
 
@@ -200,3 +201,4 @@
     width: 80%;
     justify-content: space-around;
 }
+
