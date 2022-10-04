@@ -87,7 +87,8 @@ pages.load_register = async () => {
 
             const response = await pages.postAPI(login_url,api_data);
 
-            if(response.data[1] == "Success"){
+            if(response.data.status == "Success"){
+                localStorage.setItem("username",login_username.value)
                 window.location.href="./home.html";
             } else{
                 login_error.innerHTML="Wrong username or password";
@@ -100,7 +101,8 @@ pages.load_register = async () => {
     
     signup_btn.addEventListener("click", async () => {
 
-        const signup_url = `${pages.baseURL}/register/signup`
+        const signup_url = `${pages.baseURL}/register/signup`;
+        const signup_error = document.getElementById("signup-error");
         const signup_fullname = document.getElementById("signup-fullname");
         const signup_username = document.getElementById("signup-username");
         const signup_pass = document.getElementById("signup-pass");
@@ -122,17 +124,28 @@ pages.load_register = async () => {
                 interested = interested_radios[i].value
             }
         }
-        const api_data = new URLSearchParams();
-        api_data.append("full_name",signup_fullname.value);
-        api_data.append("username",signup_username.value);
-        api_data.append("password",signup_pass.value);
-        api_data.append("age",signup_age.value);
-        api_data.append("gender",gender);
-        api_data.append("interested",interested);
-        api_data.append("location",signup_location.value);
+        if(signup_fullname.value !="" && signup_username.value !="" && signup_pass.value && signup_age.value !="" && gender!="" && interested !=""){
+            const api_data = new URLSearchParams();
+            api_data.append("full_name",signup_fullname.value);
+            api_data.append("username",signup_username.value);
+            api_data.append("password",signup_pass.value);
+            api_data.append("age",signup_age.value);
+            api_data.append("gender",gender);
+            api_data.append("interested",interested);
+            api_data.append("location",signup_location.value);
 
-        const response = await pages.postAPI(signup_url,api_data);
-        console.log(response)
+            const response = await pages.postAPI(signup_url,api_data);
+            console.log(response);
+            
+            if(response.data.status == "Success"){
+                localStorage.setItem("username",signup_username.value);
+                window.location.href="./home.html";
+            } else{
+                signup_error.innerHTML="Username already taken";
+            }
+        }else{
+            signup_error.innerHTML="Please enter all feilds";
+        }
     })
 }
 
