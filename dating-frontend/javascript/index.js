@@ -49,8 +49,9 @@ pages.load_register = async () => {
     const login_username = document.getElementById("login-username");
     const login_password = document.getElementById("login-pass");
     const login_btn = document.getElementById("login-btn");
-    const landing_url = `http://127.0.0.1:8000/api/register`;
+    const landing_url = `${pages.baseURL}/register`;
     const login_error = document.getElementById("login-error");
+    const signup_btn = document.getElementById("signup-btn")
 
     const registration_content = () => {
         login_container.classList.toggle("hide");
@@ -65,7 +66,9 @@ pages.load_register = async () => {
             const api_data = new URLSearchParams();
             api_data.append("username",login_username.value);
             api_data.append("password",login_password.value);
+
             const response = await pages.postAPI(landing_url,api_data);
+
             if(response.data[1] == "Success"){
                 window.location.href="./home.html";
             } else{
