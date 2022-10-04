@@ -100,7 +100,7 @@
 
 .header-btn{
     height: 40px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 /* Page Content Section */
@@ -129,6 +129,7 @@
 /* Content Section */
 .page-content{
     justify-content: center;
+    align-items: flex-start;
 }
 
 .content{
