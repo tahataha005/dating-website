@@ -40,6 +40,24 @@ pages.loadFor = (page) => {
     eval("pages.load_" + page + "();");
 }
 
+const load_user_cards = (users,wrapper) =>{
+    for(let i = 0;i<users.length;i++){
+        wrapper.innerHTML +=`<div class="contact-card light-bg round-edges">
+                                <div class="card-contents flex column">
+                                    <div class="picture">
+                                        <img src="" alt="">
+                                    </div>
+                                    <p>${users[i].data.username}</p>
+                                    <div class="center-bottom-card flex row">
+                                        <button class="btn white-bg round-edges dark-txt">Veiw</button>
+                                        <button class="btn dark-bg round-edges light-txt">Like</button>
+                                    </div>
+                                </div>
+                            </div>`
+    }
+}
+
+
 pages.load_register = async () => {
 
     const login_container = document.getElementById("login-content")
@@ -124,9 +142,5 @@ pages.load_home = async () => {
     const username = new URLSearchParams;
     username.append("username","mohammad")
     const interested_users = await pages.postAPI(load_interested_url,username);
-    console.log(interested_users)
-
-    // for(let i = 0;i < interested_users.length;i++){
-    //     console.log(interested_users[i]);
-    // }
+    load_user_cards(interested_users,wrapper)
 }
