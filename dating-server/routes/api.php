@@ -7,4 +7,4 @@ use App\Http\Controllers\RegistrationController;
 
 // Route::post("/login",[AuthController::class,"login"]);
 
-Route::post("/users",[RegistrationController::class,"users"]);
+Route::post("/register",[RegistrationController::class,"login"]);

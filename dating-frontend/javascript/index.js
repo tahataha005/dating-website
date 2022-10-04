@@ -41,15 +41,16 @@ pages.loadFor = (page) => {
 }
 
 pages.load_register = async () => {
-    const landing_url = `${pages.baseURL}/register`;
-    const response_landing = await pages.getAPI(landing_url);
-    console.log(response_landing);
 
     const login_container = document.getElementById("login-content")
     const signup_container = document.getElementById("signup-content")
     const login_content_btn = document.getElementById("login-content-button");
     const signup_content_btn = document.getElementById("signup-content-btn");
-    console.log(login_content_btn);
+    const login_username = document.getElementById("login-username");
+    const login_password = document.getElementById("login-pass");
+    const login_btn = document.getElementById("login-btn");
+    const landing_url = `http://127.0.0.1:8000/api/register`;
+    const login_error = document.getElementById("login-error");
 
     const registration_content = () => {
         login_container.classList.toggle("hide");
@@ -58,5 +59,21 @@ pages.load_register = async () => {
 
     signup_content_btn.addEventListener("click",registration_content);
     login_content_btn.addEventListener("click",registration_content);
+    
+    login_btn.addEventListener("click",async() => {
+        if(login_username.value != "" && login_password.value != ""){
+            const api_data = new URLSearchParams();
+            api_data.append("username",login_username.value);
+            api_data.append("password",login_password.value);
+            const response = await pages.postAPI(landing_url,api_data);
+            if(response.data[1] == "Success"){
+                window.location.href="./home.html";
+            } else{
+                login_error.innerHTML="Wrong username or password";
+            }
+        } else{
+            login_error.innerHTML="Please enter all feilds";
+        }
+    })
 }
 
