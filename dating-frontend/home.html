@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/home.css">
+</head>
+<body>
+    
+    <div class="container flex column">
+        <div class="flex header dark-bg">
+            <button class="header-btn btn round-edges medium-bg light-txt">Log Out</button>
+        </div>
+        <div class="page-content container flex row">
+            <div class="side-nav flex column light-bg">
+                <input id="search-bar" class="search-bar round-edges" placeholder="Search" type="text">
+                <button id="home-btn" class="nav-btn btn round-edges white-bg dark-txt">Home</button>
+                <button id="favorite-btn" class="nav-btn btn round-edges white-bg dark-txt">Favorite</button>
+                <button id="profile-btn" class="nav-btn btn round-edges white-bg dark-txt">Profile</button>
+            </div>
+            <div class="content flex column">
+                <div class="hero flex round-edges">
+                    <div class="fade flex round-edges">
+                        <h1 class="white-txt">Meet Your Future Partner</h1>
+                    </div>
+                </div>
+                <div id="feed" class="feed flex wrap">
+
+                    <div class="contact-card light-bg round-edges">
+                        <div class="card-contents flex column">
+                            <div class="picture">
+                                <img src="" alt="">
+                            </div>
+                            <p>Username</p>
+                            <div class="center-bottom-card flex row">
+                                <button class="btn white-bg round-edges dark-txt">Veiw</button>
+                                <button class="btn dark-bg round-edges light-txt">Like</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="javascript/index.js"></script>
+    <script>
+        pages.loadFor("home");
+    </script>
+</body>
+</html>

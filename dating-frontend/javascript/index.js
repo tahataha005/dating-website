@@ -49,9 +49,9 @@ pages.load_register = async () => {
     const login_username = document.getElementById("login-username");
     const login_password = document.getElementById("login-pass");
     const login_btn = document.getElementById("login-btn");
-    const login_url = `${pages.baseURL}/register`;
+    const signup_btn = document.getElementById("signup-btn");
+    const login_url = `${pages.baseURL}/login`;
     const login_error = document.getElementById("login-error");
-    const signup_btn = document.getElementById("signup-btn")
 
     const registration_content = () => {
         login_container.classList.toggle("hide");
@@ -79,9 +79,10 @@ pages.load_register = async () => {
         }
     })
 
+    
     signup_btn.addEventListener("click", async () => {
 
-        const signup_url = `http://127.0.0.1:8000/api/signup`
+        const signup_url = `${pages.baseURL}/signup`
         const signup_fullname = document.getElementById("signup-fullname");
         const signup_username = document.getElementById("signup-username");
         const signup_pass = document.getElementById("signup-pass");
@@ -116,4 +117,3 @@ pages.load_register = async () => {
         console.log(response)
     })
 }
-
