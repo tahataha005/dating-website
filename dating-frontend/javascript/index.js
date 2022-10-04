@@ -49,7 +49,7 @@ pages.load_register = async () => {
     const login_username = document.getElementById("login-username");
     const login_password = document.getElementById("login-pass");
     const login_btn = document.getElementById("login-btn");
-    const landing_url = `${pages.baseURL}/register`;
+    const login_url = `${pages.baseURL}/register`;
     const login_error = document.getElementById("login-error");
     const signup_btn = document.getElementById("signup-btn")
 
@@ -67,7 +67,7 @@ pages.load_register = async () => {
             api_data.append("username",login_username.value);
             api_data.append("password",login_password.value);
 
-            const response = await pages.postAPI(landing_url,api_data);
+            const response = await pages.postAPI(login_url,api_data);
 
             if(response.data[1] == "Success"){
                 window.location.href="./home.html";
@@ -79,7 +79,9 @@ pages.load_register = async () => {
         }
     })
 
-    signup_btn.addEventListener("click", () => {
+    signup_btn.addEventListener("click", async () => {
+
+        const signup_url = `${pages.baseURL}/signup`
         const signup_fullname = document.getElementById("signup-fullname");
         const signup_username = document.getElementById("signup-username");
         const signup_pass = document.getElementById("signup-pass");
@@ -101,15 +103,17 @@ pages.load_register = async () => {
                 interested = interested_radios[i].value
             }
         }
+        const api_data = new URLSearchParams();
+        api_data.append("full_name",signup_fullname.value);
+        api_data.append("full_name",signup_username.value);
+        api_data.append("full_name",signup_pass.value);
+        api_data.append("full_name",signup_age.value);
+        api_data.append("full_name",gender);
+        api_data.append("full_name",interested);
+        api_data.append("full_name",signup_location.value);
 
-        console.log(signup_fullname.value);
-        console.log(signup_username.value);
-        console.log(signup_pass.value);
-        console.log(signup_age.value);
-        console.log(gender);
-        console.log(interested);
-        console.log(signup_location.value);
-
+        const response = await pages.postAPI(signup_url,api_data);
+        console.log(response)
     })
 }
 
