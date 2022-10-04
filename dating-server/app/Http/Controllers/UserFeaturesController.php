@@ -10,5 +10,15 @@ use App\Models\Block;
 
 
 class UserFeaturesController extends Controller{
-    
+    function load_interested_users(Request $request){
+        $user = User::select("*")
+        ->where("username",$request->username)
+        ->get();
+
+        $interested_users = User::select("*")
+        ->where("gender",$user->interested)
+        ->get();
+
+        return response()->json($interested_users);
+    }
 }
