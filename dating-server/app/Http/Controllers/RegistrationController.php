@@ -26,4 +26,41 @@ class RegistrationController extends Controller{
             ]);
         }
     }
+
+    function signup(Request $request){
+        
+        $username = User::select("username")
+        ->where("username",$request->username)
+        ->get();
+        
+
+        if($username->isEmpty()){
+            $user = User::create([        
+                "full_name" => $request->full_name,
+                "username" =>$request->username,
+                "password" => $request->password,
+                "age" => $request->age,
+                "gender" => $request->gender,
+                "interested" => $request->interested,
+                "location" => $request->location
+                ]);
+
+                if ($user->save()){
+                    return response()->json([
+                        "Status"=>"Success"
+                    ]);
+                } else{
+                    return response()->json([
+                        "Status"=>"Failed"
+                    ]);
+                }
+            
+        }else{
+            return response()->json([
+                "Status"=>"Already Exists"
+            ]);
+        }
+
+
+    }
 }
