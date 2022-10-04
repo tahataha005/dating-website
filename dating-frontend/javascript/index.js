@@ -47,7 +47,7 @@ const load_user_cards = (users,wrapper) =>{
                                     <div class="picture">
                                         <img src="" alt="">
                                     </div>
-                                    <p>${users[i].data.username}</p>
+                                    <p>${users[i].username}</p>
                                     <div class="center-bottom-card flex row">
                                         <button class="btn white-bg round-edges dark-txt">Veiw</button>
                                         <button class="btn dark-bg round-edges light-txt">Like</button>
@@ -140,7 +140,8 @@ pages.load_home = async () => {
     const wrapper = document.getElementById("wrapper");
     const load_interested_url = `${pages.baseURL}/home`
     const username = new URLSearchParams;
-    username.append("username","mohammad")
+    username.append("username","nohaMiari");
     const interested_users = await pages.postAPI(load_interested_url,username);
-    load_user_cards(interested_users,wrapper)
+    console.log(wrapper);
+    load_user_cards(interested_users.data,wrapper);
 }
