@@ -60,6 +60,10 @@
     background-color: rgb(255,233,233);
 }
 
+.white-bg{
+    background-color: white;
+}
+
 .dark-txt{
     color: rgb(100,0,2);
 }
@@ -71,13 +75,20 @@
 .light-txt{
     color: rgb(255,233,233);
 }
-/* Home Page */
+
+.white-txt{
+    color: white;
+}
 
 .container{
     width: 100vw;
     align-items: center;
     justify-content: center;
 }
+
+/* Home Page */
+
+/* Header Section */
 
 .header{
     width: 100%;
@@ -92,3 +103,25 @@
     font-size: 25px;
 }
 
+/* Page Content Section */
+
+/* Side Nav Elements */
+
+.side-nav{
+    width: 15vw;
+    height: 90vh;
+    padding-top: 10vh;
+}
+
+.nav-btn{
+    height: 40px;
+    font-size: 25px;
+    margin: 5vh 5vh;
+}
+
+.search-bar{
+    height: 30px;
+    margin: 0 2vh 2vh 2vh;
+    font-size: 20px;
+    border: 0;
+}
