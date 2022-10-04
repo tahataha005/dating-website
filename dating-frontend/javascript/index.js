@@ -78,5 +78,38 @@ pages.load_register = async () => {
             login_error.innerHTML="Please enter all feilds";
         }
     })
+
+    signup_btn.addEventListener("click", () => {
+        const signup_fullname = document.getElementById("signup-fullname");
+        const signup_username = document.getElementById("signup-username");
+        const signup_pass = document.getElementById("signup-pass");
+        const signup_age = document.getElementById("signup-age");
+        const gender_radios = document.getElementsByName("gender");
+        const interested_radios = document.getElementsByName("interested");
+        const signup_location = document.getElementById("signup-location");
+        let gender = "";
+        let interested = "";
+
+        for(let i = 0;i<gender_radios.length;i++){
+            if (gender_radios[i].checked){
+                gender = gender_radios[i].value
+            }
+        }
+
+        for(let i = 0;i<interested_radios.length;i++){
+            if (interested_radios[i].checked){
+                interested = interested_radios[i].value
+            }
+        }
+
+        console.log(signup_fullname.value);
+        console.log(signup_username.value);
+        console.log(signup_pass.value);
+        console.log(signup_age.value);
+        console.log(gender);
+        console.log(interested);
+        console.log(signup_location.value);
+
+    })
 }
 
