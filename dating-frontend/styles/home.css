@@ -160,3 +160,42 @@
     text-align: center;
     width: 80%;
 }
+
+.feed{
+    width: 80%;
+    align-items: center;
+}
+/* Contact Card */
+
+.contact-card{
+    width: 40vh;
+    height: 30vh;
+    margin: 2vh;
+    padding: 2vh 1.5vh;
+    transition: 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-contents{
+    width: 38vh;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture{
+    background-color: rgb(187, 187, 187);
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+}
+
+.card-contents > p{
+    margin: 2vh 0;
+}
+
+.center-bottom-card{
+    width: 80%;
+    justify-content: space-around;
+}
