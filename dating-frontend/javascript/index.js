@@ -49,8 +49,8 @@ const load_user_cards = (users,wrapper) =>{
                                     </div>
                                     <p>${users[i].username}</p>
                                     <div class="center-bottom-card flex row">
-                                        <button class="btn white-bg round-edges dark-txt">Veiw</button>
-                                        <button class="btn dark-bg round-edges light-txt">Like</button>
+                                        <button data-value="${users[i].id}" class="btn view-btn white-bg round-edges dark-txt">View</button>
+                                        <button data-value="${users[i].id}" class="btn fav-btn dark-bg round-edges light-txt">Like</button>
                                     </div>
                                 </div>
                             </div>`
@@ -139,9 +139,12 @@ pages.load_register = async () => {
 pages.load_home = async () => {
     const wrapper = document.getElementById("wrapper");
     const load_interested_url = `${pages.baseURL}/home`
+    
     const username = new URLSearchParams;
     username.append("username","nohaMiari");
     const interested_users = await pages.postAPI(load_interested_url,username);
-    console.log(wrapper);
     load_user_cards(interested_users.data,wrapper);
+    
+    const view_btns = document.querySelectorAll(".view-btn");
+    const fav_btns = document.querySelectorAll(".fav-btn");
 }
