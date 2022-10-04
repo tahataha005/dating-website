@@ -81,7 +81,7 @@ pages.load_register = async () => {
 
     signup_btn.addEventListener("click", async () => {
 
-        const signup_url = `${pages.baseURL}/signup`
+        const signup_url = `http://127.0.0.1:8000/api/signup`
         const signup_fullname = document.getElementById("signup-fullname");
         const signup_username = document.getElementById("signup-username");
         const signup_pass = document.getElementById("signup-pass");
@@ -105,12 +105,12 @@ pages.load_register = async () => {
         }
         const api_data = new URLSearchParams();
         api_data.append("full_name",signup_fullname.value);
-        api_data.append("full_name",signup_username.value);
-        api_data.append("full_name",signup_pass.value);
-        api_data.append("full_name",signup_age.value);
-        api_data.append("full_name",gender);
-        api_data.append("full_name",interested);
-        api_data.append("full_name",signup_location.value);
+        api_data.append("username",signup_username.value);
+        api_data.append("password",signup_pass.value);
+        api_data.append("age",signup_age.value);
+        api_data.append("gender",gender);
+        api_data.append("interested",interested);
+        api_data.append("location",signup_location.value);
 
         const response = await pages.postAPI(signup_url,api_data);
         console.log(response)
