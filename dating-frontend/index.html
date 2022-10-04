@@ -29,33 +29,45 @@
             
             <div id="signup-content" class="signup-container flex column hide">    
                 <p class="login-title">Sign Up</p>
-                <label for="login-username">Full Name</label>
-                <input id="login-username" class="input round-edges" type="text">
-                <label for="login-username">Username</label>
-                <input id="login-username" class=" input round-edges" type="text">
-                <label for="login-pass">Password</label>
-                <input id="login-pass" class="input round-edges" type="text">
+                <label for="signup-fullname">Full Name</label>
+                <input id="signup-fullname" class="input round-edges" type="text">
+                <label for="signup-username">Username</label>
+                <input id="signup-username" class=" input round-edges" type="text">
+                <label for="signup-pass">Password</label>
+                <input id="signup-pass" class="input round-edges" type="text">
+                <label for="signup-age">Age</label>
+                <input id="signup-age" class="input round-edges" type="text">
                 <div class="gender flex row">
                     <label>Gender:</label>
                     <div class="flex row grow">
-                        <input type="radio" name="gender" value="Male" class="radio">
+                        <input type="radio" name="gender" value="male" class="radio">
                         <label for="gender">Male</label>
                     </div>
                     <div class="flex row grow">
-                        <input type="radio" name="gender" value="Female" class="radio">
-                        <label for="css">Female</label>
+                        <input type="radio" name="gender" value="female" class="radio">
+                        <label for="gender">Female</label>
                     </div>
                 </div>
                 <div class="interested flex row">
                     <label>Interested in:</label>
                     <div class="flex row grow">
-                        <input type="radio" name="interested" value="Male" class="radio">
-                        <label for="gender">Male</label>
+                        <input type="radio" name="interested" value="male" class="radio">
+                        <label for="interested">Male</label>
                     </div>
                     <div class="flex row grow">
-                        <input type="radio" name="interested" value="Female" class="radio">
-                        <label for="css">Female</label>
+                        <input type="radio" name="interested" value="female" class="radio">
+                        <label for="interested">Female</label>
                     </div>
+                </div>
+                <div class="flex row">
+                    <label for="signup-location">Location</label>
+                    <select name="dropdown" id="signup-location">
+                        <option value="beirut">Beirut</option>
+                        <option value="tripoli">Tripoli</option>
+                        <option value="saida">Saida</option>
+                        <option value="jbeil">Jbeil</option>
+                        <option value="bekaa">Bekaa</option>
+                    </select>
                 </div>
                 <button id="signup-btn" class="login-btn round-edges">Sign Up</button>
                 <div class="flex row">
