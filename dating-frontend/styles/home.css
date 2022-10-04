@@ -3,6 +3,7 @@
 *{
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
 }
 
 /* Utilities */
@@ -14,6 +15,7 @@
 .btn{
     cursor: pointer;
     border: 0;
+    padding: 0 2vh;
 }
 
 .flex{
@@ -32,6 +34,10 @@
     flex-grow: 1;
 }
 
+.wrap{
+    flex-wrap: wrap;
+}
+
 .hide{
     display: none;
 }
@@ -46,12 +52,20 @@
     background-color: rgb(100,0,2);
 }
 
+.medium-bg{
+    background-color: rgb(255,146,160);
+}
+
 .light-bg{
     background-color: rgb(255,233,233);
 }
 
-.light-bg{
+.dark-txt{
     color: rgb(100,0,2);
+}
+
+.medium-txt{
+    background-color: rgb(255,146,160);
 }
 
 .light-txt{
@@ -63,5 +77,18 @@
     width: 100vw;
     align-items: center;
     justify-content: center;
+}
+
+.header{
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 5vh;
+}
+
+.header-btn{
+    height: 40px;
+    font-size: 25px;
 }
 
