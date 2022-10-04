@@ -49,6 +49,7 @@ pages.load_register = async () => {
     const login_username = document.getElementById("login-username");
     const login_password = document.getElementById("login-pass");
     const login_btn = document.getElementById("login-btn");
+    const signup_btn = document.getElementById("signup-btn");
     const login_url = `${pages.baseURL}/login`;
     const login_error = document.getElementById("login-error");
 
@@ -78,6 +79,7 @@ pages.load_register = async () => {
         }
     })
 
+    
     signup_btn.addEventListener("click", async () => {
 
         const signup_url = `${pages.baseURL}/signup`
@@ -114,8 +116,4 @@ pages.load_register = async () => {
         const response = await pages.postAPI(signup_url,api_data);
         console.log(response)
     })
-}
-
-pages.load_home = async () => {
-    
 }
