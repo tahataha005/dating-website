@@ -151,13 +151,27 @@ pages.load_register = async () => {
 
 pages.load_home = async () => {
     const wrapper = document.getElementById("wrapper");
-    const load_interested_url = `${pages.baseURL}/home`
+    const load_interested_url = `${pages.baseURL}/home`;
+    const add_favrite_url = `${pages.baseURL}/favorite`;
+    const username = localStorage.getItem("username");
     
-    const username = new URLSearchParams;
-    username.append("username","nohaMiari");
-    const interested_users = await pages.postAPI(load_interested_url,username);
+    const load_data = new URLSearchParams;
+    username.append("username",username);
+    const interested_users = await pages.postAPI(load_interested_url,load_data);
     load_user_cards(interested_users.data,wrapper);
     
     const view_btns = document.querySelectorAll(".view-btn");
     const fav_btns = document.querySelectorAll(".fav-btn");
+
+    fav_btns.forEach(fav => {
+        fav.addEventListener("click", async () => {
+            fav_data = new URLSearchParams;
+            const fav_id = fav.getAttribute("data-value");
+            fav_data.append("username",username);
+            fav_data.append("fav_id",fav_id);
+
+            const response = await pages.postAPI(add_favrite_url,fav_data);
+            console.log(response)
+        })
+    });
 }
