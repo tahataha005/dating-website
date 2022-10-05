@@ -133,19 +133,20 @@ class UserFeaturesController extends Controller{
     }
 
     function receive_messages(Request $request){
+
+        $user = User::select("id")
+        ->where("username",$request->username)
+        ->get();
+
+        $my_id = $user[0]->id;
+
         $messages = Message::select("*")
-        ->where([
-            "sender_id"=>$request->my_id,
-            "receiver_id"=>$request->user_id
-        ])
-        ->orwhere([
-            "sender_id"=>$request->user_id,
-            "receiver_id"=>$request->my_id
-        ])
+        ->where("sender_id",$my_id)->where("receiver_id",$request->user_id)
+        ->orwhere("sender_id",$request->user_id)->where("receiver_id",$my_id)
         ->orderby("created_at")
         ->get();
 
-        return response()->json([$messages]);
+        return response()->json($messages);
     }
 
     function edit_profile(Request $request){
