@@ -9,4 +9,8 @@ class Block extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'blocker_id',
+        'blocked_id'
+    ];
 }

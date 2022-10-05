@@ -57,6 +57,34 @@ const load_user_cards = (users,wrapper) =>{
     }
 }
 
+const view_fav_events = () => {
+    const view_btns = document.querySelectorAll(".view-btn");
+
+    view_btns.forEach(view =>{
+        view.addEventListener("click", () => {
+            
+            const clicked_id = view.getAttribute("data-value");
+            localStorage.setItem("clicked_id",clicked_id);
+            window.location.href="./show_user.html";
+
+        })
+    })
+
+    const fav_btns = document.querySelectorAll(".fav-btn");
+    const username = localStorage.getItem("username")
+    const add_favorite_url =`${pages.baseURL}/favorite`
+    fav_btns.forEach(fav => {
+        fav.addEventListener("click", async () => {
+            fav_data = new URLSearchParams;
+            const fav_id = fav.getAttribute("data-value");
+            fav_data.append("username",username);
+            fav_data.append("fav_id",fav_id);
+
+            const response = await pages.postAPI(add_favorite_url,fav_data);
+        })
+    });
+}
+
 
 pages.load_register = async () => {
 
@@ -151,7 +179,7 @@ pages.load_register = async () => {
 
 pages.load_home = async () => {
     const home_wrapper = document.getElementById("home-wrapper");
-    const favorite_wrapper = document.getElementById("home-wrapper");
+    const favorite_wrapper = document.getElementById("favorite-wrapper");
     const load_interested_url = `${pages.baseURL}/home`;
     const load_favorites_url = `${pages.baseURL}/get_favorites`;
     const add_favrite_url = `${pages.baseURL}/favorite`;
@@ -162,36 +190,12 @@ pages.load_home = async () => {
     const home_container = document.getElementById("home-container");
     const favorite_container = document.getElementById("favorite-container");
     
-    const load_data = new URLSearchParams;
+    const load_data = new URLSearchParams();
     load_data.append("username",username);
     const interested_users = await pages.postAPI(load_interested_url,load_data);
     load_user_cards(interested_users.data,home_wrapper);
+    view_fav_events();
     
-    const view_btns = document.querySelectorAll(".view-btn");
-
-    view_btns.forEach(view =>{
-        view.addEventListener("click", () => {
-            
-            const clicked_id = view.getAttribute("data-value");
-            localStorage.setItem("clicked_id",clicked_id);
-            window.location.href="./show_user.html";
-
-        })
-    })
-
-    const fav_btns = document.querySelectorAll(".fav-btn");
-
-    fav_btns.forEach(fav => {
-        fav.addEventListener("click", async () => {
-            fav_data = new URLSearchParams;
-            const fav_id = fav.getAttribute("data-value");
-            fav_data.append("username",username);
-            fav_data.append("fav_id",fav_id);
-
-            const response = await pages.postAPI(add_favrite_url,fav_data);
-            console.log(response)
-        })
-    });
 
     favorite_btn.addEventListener("click", async () => {
         favorite_btn.classList.remove("white-bg","dark-txt");
@@ -206,9 +210,11 @@ pages.load_home = async () => {
         const favorites_api_data = new URLSearchParams();
         const username = localStorage.getItem("username");
         favorites_api_data.append("username",username);
-        const favorites = await pages.postAPI(load_favorites_url,favorites_api_data);
+        const favorite_response = await pages.postAPI(load_favorites_url,favorites_api_data);
+        const favorite_users = favorite_response.data;
+        load_user_cards(favorite_users,favorite_wrapper);
 
-        console.log(favorites);
+        view_fav_events();
         
     })
 
@@ -228,8 +234,11 @@ pages.load_home = async () => {
         favorite_btn.classList.add("white-bg","dark-txt");
         profile_btn.classList.remove("medium-bg","white-txt");
         profile_btn.classList.add("white-bg","dark-txt");
+        
         home_container.classList.remove("hide");
         favorite_container.classList.add("hide");
+
+        favorite_wrapper.innerHTML = "";
     })
 }
 
@@ -249,7 +258,6 @@ pages.load_show_user = async () => {
     clicked_user_data.append("clicked_id",clicked_user_id)
     
     const response = await pages.postAPI(user_info_url,clicked_user_data);
-    console.log(response)
     
     const user_info = response.data[0];
     full_name.innerHTML = user_info.full_name;
@@ -259,4 +267,6 @@ pages.load_show_user = async () => {
     interest.innerHTML = user_info.interested;
     location.innerHTML = user_info.location;
     profile_name.innerHTML = user_info.username;
+
+    
 }
