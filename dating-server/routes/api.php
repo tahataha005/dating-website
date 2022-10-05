@@ -16,6 +16,7 @@ Route::post("/user_info",[UserFeaturesController::class,"get_user"]);
 Route::post("/get_favorites",[UserFeaturesController::class,"get_favorites"]);
 Route::post("/block",[UserFeaturesController::class,"add_block"]);
 Route::post("/send_message",[UserFeaturesController::class,"send_message"]);
+Route::post("/receive_message",[UserFeaturesController::class,"receive_message"]);
 
 
 
