@@ -269,9 +269,11 @@ pages.load_show_user = async () => {
     const profile_name = document.getElementById("profile-name");
     const user_info_url = `${pages.baseURL}/user_info`;
     const get_messages_url = `${pages.baseURL}/receive_messages`;
+    const send_messages_url = `${pages.baseURL}/send_message`;
     const chat_content = document.getElementById("chat-content");
     const clicked_user_id = localStorage.getItem("clicked_id");
-    
+    const send_bar = document.getElementById("send-bar");
+    const send_button = document.getElementById("send-button");
     const clicked_user_data = new URLSearchParams();
     clicked_user_data.append("clicked_id",clicked_user_id)
     
@@ -291,7 +293,17 @@ pages.load_show_user = async () => {
     chat_between.append("username",my_username)
     chat_between.append("user_id",clicked_user_id)
     const chats = await pages.postAPI(get_messages_url,chat_between); 
-    console.log(username)
     messages_loader(chats.data,clicked_user_id,user_info.username,chat_content)
 
+    send_button.addEventListener("click", async () => {
+        const message = send_bar.value;
+        const message_data = new URLSearchParams();
+        message_data.append("message_content",message);
+        message_data.append("username",my_username);
+        message_data.append("receiver_id",clicked_user_id);
+
+        const send = await pages.postAPI(send_messages_url,message_data);
+        
+
+    })
 }
