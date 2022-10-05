@@ -63,4 +63,12 @@ class UserFeaturesController extends Controller{
             ]);
         }
     }
+
+    function get_user(Request $request){
+        $user_info = User::select("*")
+        ->where("id",$request->clicked_id)
+        ->get();
+
+        return response()->json($user_info);
+    }
 }
