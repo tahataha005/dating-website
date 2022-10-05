@@ -65,8 +65,13 @@ class UserFeaturesController extends Controller{
     }
 
     function get_favorites(Request $request){
+
+        $user_id = User::select("id")
+        ->where("username",$request->username)
+        ->get();
+
         $favorite_ids = Favorite::select("favorite_id")
-        ->where("users_id",$request->user_id)
+        ->where("users_id",$user_id[0]->id)
         ->get();
 
         $users = [];
