@@ -201,6 +201,8 @@ pages.load_home = async () => {
         profile_btn.classList.add("white-bg","dark-txt");
         home_container.classList.add("hide");
         favorite_container.classList.remove("hide");
+
+        
     })
 
     profile_btn.addEventListener("click", () => {
@@ -209,7 +211,7 @@ pages.load_home = async () => {
         favorite_btn.classList.remove("medium-bg","white-txt");
         favorite_btn.classList.add("white-bg","dark-txt");
         home_btn.classList.remove("medium-bg","white-txt");
-        home_btn.classList.add("white-bg","dark-txt");  
+        home_btn.classList.add("white-bg","dark-txt");
     })
 
     home_btn.addEventListener("click", () => {
