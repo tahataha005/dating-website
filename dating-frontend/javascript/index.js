@@ -85,6 +85,23 @@ const view_fav_events = () => {
     });
 }
 
+const messages_loader = (messages,clicked_id,username,container) => {
+console.log(messages[0].sender_id)
+    for(let i = 0;i<messages.length;i++){
+        if(messages[i].sender_id == clicked_id){
+            container.innerHTML+=`<div class="message flex column dark-bg round-edges">
+                                        <p class="message-username white-txt">${username}</p>
+                                        <p class="message-content white-txt">${messages[i].message_content}</p>
+                                    </div>`
+        }else{
+            container.innerHTML+=`<div class="message flex column medium-bg round-edges">
+                                        <p class="message-username white-txt">You</p>
+                                        <p class="message-content white-txt">${messages[i].message_content}</p>
+                                    </div>`
+        }
+    }
+}
+
 
 pages.load_register = async () => {
 
@@ -274,6 +291,7 @@ pages.load_show_user = async () => {
     chat_between.append("username",my_username)
     chat_between.append("user_id",clicked_user_id)
     const chats = await pages.postAPI(get_messages_url,chat_between); 
-    console.log(chats.data)
+    console.log(username)
+    messages_loader(chats.data,clicked_user_id,user_info.username,chat_content)
 
 }
