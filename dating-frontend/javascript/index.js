@@ -156,7 +156,7 @@ pages.load_home = async () => {
     const username = localStorage.getItem("username");
     
     const load_data = new URLSearchParams;
-    username.append("username",username);
+    load_data.append("username",username);
     const interested_users = await pages.postAPI(load_interested_url,load_data);
     load_user_cards(interested_users.data,wrapper);
     
