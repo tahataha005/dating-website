@@ -70,17 +70,13 @@ class UserFeaturesController extends Controller{
         ->where("username",$request->username)
         ->get();
 
+        $users = [];
         $favorite_ids = Favorite::select("favorite_id")
         ->where("users_id",$user_id[0]->id)
         ->get();
-
-        $users = [];
-        for($i = 0;$i < count($favorite_ids); $i++){
-            $id = $favorite_ids[$i]->favorite_id;
-            $users[] = User::select("*")
-            ->where("id",$id)
-            ->get(); 
-            
+        
+        foreach($favorite_ids as $favorite_id){
+            $users[] = User::find($favorite_id->favorite_id);
         }
         return response()->json($users);
     }
@@ -117,4 +113,6 @@ class UserFeaturesController extends Controller{
             ]);
         }
     }
+
+
 }
