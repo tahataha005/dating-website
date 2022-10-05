@@ -69,7 +69,7 @@
 }
 
 .medium-txt{
-    background-color: rgb(255,146,160);
+    color: rgb(255,146,160);
 }
 
 .light-txt{
@@ -84,4 +84,33 @@
     width: 100vw;
     align-items: center;
     justify-content: center;
+}
+
+.user-profile{
+    width: 60vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-content{
+    width: 70%;
+    align-items: center;
+}
+
+.profile-image{
+    width: 40vh;
+    height: 40vh;
+    background-color: rgb(187, 187, 187);
+    border-radius: 50%;
+    margin: 5vh;
+}
+
+.profile-info{
+    width: 30vh;
+    font-size: 20px;
+}
+
+.profile-name{
+    font-size: 30px;
+    text-align: center;
 }
