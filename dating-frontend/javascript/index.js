@@ -150,18 +150,21 @@ pages.load_register = async () => {
 }
 
 pages.load_home = async () => {
-    const wrapper = document.getElementById("wrapper");
+    const home_wrapper = document.getElementById("home-wrapper");
+    const favorite_wrapper = document.getElementById("home-wrapper");
     const load_interested_url = `${pages.baseURL}/home`;
     const add_favrite_url = `${pages.baseURL}/favorite`;
     const username = localStorage.getItem("username");
     const home_btn = document.getElementById("home-btn");
     const favorite_btn = document.getElementById("favorite-btn");
     const profile_btn = document.getElementById("profile-btn");
+    const home_container = document.getElementById("home-container");
+    const favorite_container = document.getElementById("favorite-container");
     
     const load_data = new URLSearchParams;
     load_data.append("username",username);
     const interested_users = await pages.postAPI(load_interested_url,load_data);
-    load_user_cards(interested_users.data,wrapper);
+    load_user_cards(interested_users.data,home_wrapper);
     
     const view_btns = document.querySelectorAll(".view-btn");
 
@@ -195,7 +198,9 @@ pages.load_home = async () => {
         home_btn.classList.remove("medium-bg","white-txt");
         home_btn.classList.add("white-bg","dark-txt");
         profile_btn.classList.remove("medium-bg","white-txt");
-        profile_btn.classList.add("white-bg","dark-txt");  
+        profile_btn.classList.add("white-bg","dark-txt");
+        home_container.classList.add("hide");
+        favorite_container.classList.remove("hide");
     })
 
     profile_btn.addEventListener("click", () => {
@@ -213,7 +218,9 @@ pages.load_home = async () => {
         favorite_btn.classList.remove("medium-bg","white-txt");
         favorite_btn.classList.add("white-bg","dark-txt");
         profile_btn.classList.remove("medium-bg","white-txt");
-        profile_btn.classList.add("white-bg","dark-txt");  
+        profile_btn.classList.add("white-bg","dark-txt");
+        home_container.classList.remove("hide");
+        favorite_container.classList.add("hide");
     })
 }
 
