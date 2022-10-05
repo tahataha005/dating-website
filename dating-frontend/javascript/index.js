@@ -194,6 +194,7 @@ pages.load_show_user = async () => {
     const gender = document.getElementById("gender");
     const interest = document.getElementById("interest");
     const location = document.getElementById("location");
+    const profile_name = document.getElementById("profile-name");
     const user_info_url = `${pages.baseURL}/user_info`;
     
     const clicked_user_id = localStorage.getItem("clicked_id");
@@ -211,4 +212,5 @@ pages.load_show_user = async () => {
     gender.innerHTML = user_info.gender;
     interest.innerHTML = user_info.interested;
     location.innerHTML = user_info.location;
+    profile_name.innerHTML = user_info.username;
 }
