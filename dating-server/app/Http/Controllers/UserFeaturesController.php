@@ -131,4 +131,20 @@ class UserFeaturesController extends Controller{
             ]);
         }
     }
+
+    function receive_messages(Request $request){
+        $messages = Message::select("*")
+        ->where(["
+        sender_id"=>$request->my_id,
+        "receiver_id"=>$request->user_id
+        ])
+        ->where(["
+        sender_id"=>$request->user_id,
+        "receiver_id"=>$request->my_id
+        ])
+        ->order("created_at")
+        ->get();
+
+        return response()->json([$messages]);
+    }
 }
