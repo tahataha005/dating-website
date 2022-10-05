@@ -115,8 +115,15 @@ class UserFeaturesController extends Controller{
     }
 
     function send_message(Request $request){
+
+        $user = User::select("id")
+        ->where("username",$request->username)
+        ->get();
+
+        $my_id = $user[0]->id;
+
         $message = Message::create([
-            "sender_id"=>$request->sender_id,
+            "sender_id"=>$my_id,
             "receiver_id"=>$request->receiver_id,
             "message_content"=>$request->message_content
         ]);
