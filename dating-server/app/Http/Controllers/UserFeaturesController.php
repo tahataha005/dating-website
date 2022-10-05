@@ -23,24 +23,43 @@ class UserFeaturesController extends Controller{
         return response()->json($interested_users);
     }
 
-    function add_favorite(Request $request){
+    function toggle_favorite(Request $request){
 
-        $user_id = User::select("id")
+        $user = User::select("id")
         ->where("username",$request->username)
         ->get();
 
-        $fav = Favorite::create([
-            "users_id" => $user_id[0]->id,
-            "favorite_id" => $request->fav_id
-        ]);
+        $user_id = $user[0]->id;
+        $fav_id = $request->fav_id;
 
-        if($fav->save()){
-            return response()->json([
-                "status" => "Success"
+        $present = Favorite::select("users_id","favorite_id")
+        ->where("users_id",$user_id)
+        ->where("favorite_id",$fav_id)
+        ->get();
+
+        
+        if($present->isEmpty()){
+            $fav = Favorite::create([
+                "users_id" => $user_id,
+                "favorite_id" => $fav_id
             ]);
+
+            if($fav->save()){
+                return response()->json([
+                    "status" => "Success"
+                ]);
+            }else{
+                return response()->json([
+                    "status" => "Failed"
+                ]);
+            }
         }else{
+            Favorite::where("users_id",$user_id)
+            ->where("favorite_id",$fav_id)
+            ->delete();
+
             return response()->json([
-                "status" => "Failed"
+                "status" => "Deleted successfully"
             ]);
         }
     }
