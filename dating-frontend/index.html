@@ -9,19 +9,80 @@
 </head>
 <body>
     
-    <div class="container">
-        <div class="login-container">
-            <label for="login-username">Username</label>
-            <input id="login-username" type="text" class="input">
-            <label for="login-pass">Password</label>
-            <input id="login-pass" type="text">
-            <div>
-                <p>Don't have an account?</p>
-                <button id="signup-popup-btn" >Sign Up</button>
+    <div class="container flex">
+        <div class="register-content round-edges">
+            <div id="login-content" class="login-container flex column">    
+                <p class="login-title">Login</p>
+                <label for="login-username">Username</label>
+                <input id="login-username" class="input round-edges" type="text">
+                <label for="login-pass">Password</label>
+                <input id="login-pass" class="input round-edges"  type="text">
+                <div class="flex">
+                    <p id="login-error"></p>
+                </div>
+                <button id="login-btn" class="login-btn round-edges">Login</button>
+                <div class="flex row">
+                    <p>Don't have an account?</p>
+                    <label id="signup-content-btn" class="content-btn">Sign Up</label>
+                </div>
+            </div>
+            
+            <div id="signup-content" class="signup-container flex column hide">    
+                <p class="login-title">Sign Up</p>
+                <div><p id="signup-error"></p></div>
+                <label for="signup-fullname">Full Name</label>
+                <input id="signup-fullname" class="input round-edges" type="text">
+                <label for="signup-username">Username</label>
+                <input id="signup-username" class=" input round-edges" type="text">
+                <label for="signup-pass">Password</label>
+                <input id="signup-pass" class="input round-edges" type="text">
+                <label for="signup-age">Age</label>
+                <input id="signup-age" class="input round-edges" type="text">
+                <div class="gender flex row">
+                    <label>Gender:</label>
+                    <div class="flex row grow">
+                        <input type="radio" name="gender" value="male" class="radio">
+                        <label for="gender">Male</label>
+                    </div>
+                    <div class="flex row grow">
+                        <input type="radio" name="gender" value="female" class="radio">
+                        <label for="gender">Female</label>
+                    </div>
+                </div>
+                <div class="interested flex row">
+                    <label>Interested in:</label>
+                    <div class="flex row grow">
+                        <input type="radio" name="interested" value="male" class="radio">
+                        <label for="interested">Male</label>
+                    </div>
+                    <div class="flex row grow">
+                        <input type="radio" name="interested" value="female" class="radio">
+                        <label for="interested">Female</label>
+                    </div>
+                </div>
+                <div class="flex row">
+                    <label for="signup-location">Location</label>
+                    <select name="dropdown" id="signup-location">
+                        <option value="beirut">Beirut</option>
+                        <option value="tripoli">Tripoli</option>
+                        <option value="saida">Saida</option>
+                        <option value="jbeil">Jbeil</option>
+                        <option value="bekaa">Bekaa</option>
+                    </select>
+                </div>
+                <button id="signup-btn" class="login-btn round-edges">Sign Up</button>
+                <div class="flex row">
+                    <p>Already have an account?</p>
+                    <label id="login-content-button" class="content-btn">login</label>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
     <script src="javascript/index.js"></script>
+    <script>
+        pages.loadFor("register");
+    </script>
 </body>
 </html>

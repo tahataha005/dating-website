@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/show_user.css">
+</head>
+<body>
+    
+    <div class="container flex row">
+        <div class="user-profile flex">
+            <div class="user-content flex column">
+                <div class="profile-image">
+                    <img src="" alt="">
+                </div>
+                <div class="profile-info">
+                    <p id="full-name" class="profile-name dark-txt">Name</p>
+                    <p id="username" class="profile-name medium-txt">Username</p>
+                    <div class="flex row">
+                        <p class="dark-txt">Bio:</p>
+                        <p id="bio"></p>
+                    </div>
+                    <div class="flex row">
+                        <p class="dark-txt">Gender:</p>
+                        <p id="gender"></p>
+                    </div>
+                    <div class="flex row">
+                        <p class="dark-txt">Interested in:</p>
+                        <p id="interest"></p>
+                    </div>
+                    <div class="flex row">
+                        <p class="dark-txt">Location:</p>
+                        <p id="location"></p>
+                    </div>
+                </div>
+            </div>                
+        </div>
+
+        <div class="chat-container flex column">
+            <div class="chat-header flex dark-bg">
+                <div>
+                    <img src="" alt="">
+                </div>
+                <p id="profile-name" class="profile-name white-txt"></p>
+            </div>
+            <div id="chat-content" class="chat-content flex column light-bg">
+                
+            </div>
+            <div class="send-bar flex row dark-bg">
+                <input id="send-bar" type="text" class="round-edges">
+                <button id="send-button" class="btn round-edges medium-bg white-txt">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+    <script src="javascript/index.js"></script>
+    <script>
+        pages.loadFor("show_user");
+    </script>
+</body>
+</html>

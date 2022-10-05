@@ -1,0 +1,185 @@
+/* CSS reset */
+
+*{
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Utilities */
+
+.round-edges{
+    border-radius: 20px;
+}
+
+.btn{
+    cursor: pointer;
+    border: 0;
+    padding: 0 2vh;
+}
+
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.hide{
+    display: none;
+}
+
+.radio{
+    height: 15px;
+    width: 15px;
+    margin: 1vh;
+}
+
+.dark-bg{
+    background-color: rgb(100,0,2);
+}
+
+.medium-bg{
+    background-color: rgb(255,146,160);
+}
+
+.light-bg{
+    background-color: rgb(255,233,233);
+}
+
+.white-bg{
+    background-color: white;
+}
+
+.dark-txt{
+    color: rgb(100,0,2);
+}
+
+.medium-txt{
+    color: rgb(255,146,160);
+}
+
+.light-txt{
+    color: rgb(255,233,233);
+}
+
+.white-txt{
+    color: white;
+}
+
+.container{
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* User Profile Section */
+
+.user-profile{
+    width: 60vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-content{
+    width: 70%;
+    align-items: center;
+}
+
+.profile-image{
+    width: 40vh;
+    height: 40vh;
+    background-color: rgb(187, 187, 187);
+    border-radius: 50%;
+    margin: 5vh;
+}
+
+.profile-info{
+    width: 30vh;
+    font-size: 20px;
+}
+
+.profile-name{
+    font-size: 30px;
+    text-align: center;
+    margin: 0 5vh;
+}
+
+/* Messages Section */
+
+.chat-container{
+    width: 40vw;
+    height: 100vh;
+    justify-content: flex-start;
+    border-left: 2px;
+    border-style: outset;
+}
+
+.chat-header{
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    padding: 0 5vh;
+}
+
+.chat-header > div{
+    width: 6vh;
+    height: 6vh;
+    background-color: rgb(181, 181, 181);
+    border-radius: 50%;
+}
+
+.chat-content{
+    width: 100%;
+    height: 84%;
+}
+
+.message{
+    width: 70%;
+    padding: 2vh;
+    margin: 2vh;
+}
+
+.message-username{
+    font-size: 20px;
+}
+
+.message-content{
+    font-size: 10px;
+}
+
+.send-bar{
+    width: 100%;
+    height: 6%;
+    padding: 0 5vh;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.send-bar > input{
+    width: 85%;
+    height: 70%;
+    margin-right: 2vh;
+}
+
+.send-bar > button{
+    width: 15%;
+    height: 70%;
+    font-size: 20px;
+}
+

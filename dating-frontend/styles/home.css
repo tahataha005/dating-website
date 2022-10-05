@@ -1,0 +1,204 @@
+/* CSS reset */
+
+*{
+    margin: 0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Utilities */
+
+.round-edges{
+    border-radius: 20px;
+}
+
+.btn{
+    cursor: pointer;
+    border: 0;
+    padding: 0 2vh;
+}
+
+.flex{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.hide{
+    display: none;
+}
+
+.radio{
+    height: 15px;
+    width: 15px;
+    margin: 1vh;
+}
+
+.dark-bg{
+    background-color: rgb(100,0,2);
+}
+
+.medium-bg{
+    background-color: rgb(255,146,160);
+}
+
+.light-bg{
+    background-color: rgb(255,233,233);
+}
+
+.white-bg{
+    background-color: white;
+}
+
+.dark-txt{
+    color: rgb(100,0,2);
+}
+
+.medium-txt{
+    background-color: rgb(255,146,160);
+}
+
+.light-txt{
+    color: rgb(255,233,233);
+}
+
+.white-txt{
+    color: white;
+}
+
+.container{
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Home Page */
+
+/* Header Section */
+
+.header{
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 5vh;
+}
+
+.header-btn{
+    height: 40px;
+    font-size: 20px;
+}
+
+/* Page Content Section */
+
+/* Side Nav Elements */
+
+.side-nav{
+    width: 15vw;
+    height: 90vh;
+    padding-top: 10vh;
+}
+
+.nav-btn{
+    height: 40px;
+    font-size: 25px;
+    margin: 5vh 5vh;
+}
+
+.search-bar{
+    height: 30px;
+    margin: 0 2vh 2vh 2vh;
+    font-size: 20px;
+    border: 0;
+}
+
+/* Content Section */
+.page-content{
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content{
+    width: 85vw;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero */
+
+.hero{
+    width: 80%;
+    height: 50vh;
+    margin: 5vh;
+    background-image: url(../assets/hero-image.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.fade{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.3);
+    justify-content: center;
+    align-items: center;
+}
+
+.fade > h1{
+    text-align: center;
+    width: 80%;
+}
+
+.feed{
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Contact Card */
+
+.contact-card{
+    width: 40vh;
+    height: 30vh;
+    margin: 2vh;
+    padding: 2vh 1.5vh;
+    transition: 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-contents{
+    width: 38vh;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture{
+    background-color: rgb(187, 187, 187);
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+}
+
+.card-contents > p{
+    margin: 2vh 0;
+}
+
+.center-bottom-card{
+    width: 80%;
+    justify-content: space-around;
+}
+
