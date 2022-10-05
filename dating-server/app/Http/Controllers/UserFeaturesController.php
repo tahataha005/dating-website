@@ -30,7 +30,7 @@ class UserFeaturesController extends Controller{
         ->get();
 
         $fav = Favorite::create([
-            "users_id" => $user_id,
+            "users_id" => $user_id[0]->id,
             "favorite_id" => $request->fav_id
         ]);
 
