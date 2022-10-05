@@ -13,4 +13,6 @@ Route::group(["prefix"=>"register"],function(){
 Route::post("/home",[UserFeaturesController::class,"load_interested_users"]);
 Route::post("/favorite",[UserFeaturesController::class,"add_favorite"]);
 Route::post("/user_info",[UserFeaturesController::class,"get_user"]);
+Route::post("/get_favorites",[UserFeaturesController::class,"get_favorites"]);
+
 
