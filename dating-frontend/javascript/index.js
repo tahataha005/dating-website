@@ -85,6 +85,23 @@ const view_fav_events = () => {
     });
 }
 
+const messages_loader = (messages,clicked_id,username,container) => {
+console.log(messages[0].sender_id)
+    for(let i = 0;i<messages.length;i++){
+        if(messages[i].sender_id == clicked_id){
+            container.innerHTML+=`<div class="message flex column dark-bg round-edges">
+                                        <p class="message-username white-txt">${username}</p>
+                                        <p class="message-content white-txt">${messages[i].message_content}</p>
+                                    </div>`
+        }else{
+            container.innerHTML+=`<div class="message flex column medium-bg round-edges">
+                                        <p class="message-username white-txt">You</p>
+                                        <p class="message-content white-txt">${messages[i].message_content}</p>
+                                    </div>`
+        }
+    }
+}
+
 
 pages.load_register = async () => {
 
@@ -251,15 +268,16 @@ pages.load_show_user = async () => {
     const location = document.getElementById("location");
     const profile_name = document.getElementById("profile-name");
     const user_info_url = `${pages.baseURL}/user_info`;
-    
+    const get_messages_url = `${pages.baseURL}/receive_messages`;
+    const chat_content = document.getElementById("chat-content");
     const clicked_user_id = localStorage.getItem("clicked_id");
     
     const clicked_user_data = new URLSearchParams();
     clicked_user_data.append("clicked_id",clicked_user_id)
     
-    const response = await pages.postAPI(user_info_url,clicked_user_data);
+    const info = await pages.postAPI(user_info_url,clicked_user_data);
     
-    const user_info = response.data[0];
+    const user_info = info.data[0];
     full_name.innerHTML = user_info.full_name;
     username.innerHTML = user_info.username;
     bio.innerHTML = user_info.bio;
@@ -268,5 +286,12 @@ pages.load_show_user = async () => {
     location.innerHTML = user_info.location;
     profile_name.innerHTML = user_info.username;
 
-    
+    const chat_between = new URLSearchParams();
+    const my_username = localStorage.getItem("username");
+    chat_between.append("username",my_username)
+    chat_between.append("user_id",clicked_user_id)
+    const chats = await pages.postAPI(get_messages_url,chat_between); 
+    console.log(username)
+    messages_loader(chats.data,clicked_user_id,user_info.username,chat_content)
+
 }
