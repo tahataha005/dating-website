@@ -166,5 +166,9 @@ class UserFeaturesController extends Controller{
         $user = User::select("*")
         ->where("username",$request->old_username)
         ->update($update_details);
+
+        return response()->json([
+            "status" => "success"
+        ]);
     }
 }
