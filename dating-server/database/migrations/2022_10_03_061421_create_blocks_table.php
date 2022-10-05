@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('blocks', function (Blueprint $table) {
-            $table->integer("blocker_id")->nullable()->constrained("id")->on("users");
-            $table->integer("blocked_id")->nullable()->constrained("id")->on("users");
+            $table->integer("blocker_id");
+            $table->integer("blocked_id");
+            $table->timestamps();
         });
     }
 

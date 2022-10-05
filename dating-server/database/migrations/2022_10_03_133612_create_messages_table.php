@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer("sender_id")->nullable()->constrained("id")->on("users");
             $table->integer("receiver_id")->nullable()->constrained("id")->on("users");
             $table->string("message_content");
-            $table->timestamp("time");
+            $table->timestamps();
         });
     }
 
