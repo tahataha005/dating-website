@@ -16,25 +16,27 @@
         <div class="page-content container flex row">
             <div class="side-nav flex column light-bg">
                 <input id="search-bar" class="search-bar round-edges" placeholder="Search" type="text">
-                <button id="home-btn" class="nav-btn btn round-edges white-bg dark-txt">Home</button>
+                <button id="home-btn" class="nav-btn btn round-edges medium-bg white-txt">Home</button>
                 <button id="favorite-btn" class="nav-btn btn round-edges white-bg dark-txt">Favorite</button>
                 <button id="profile-btn" class="nav-btn btn round-edges white-bg dark-txt">Profile</button>
             </div>
-            <div class="content flex column">
+            <div id="home-container" class="content flex column">
                 <div class="hero flex round-edges">
                     <div class="fade flex round-edges">
                         <h1 class="white-txt">Meet Your Future Partner</h1>
                     </div>
                 </div>
-                <div id="wrapper" class="feed flex wrap">
-
-                    
+                <div id="home-wrapper" class="feed flex wrap">
 
                 </div>
             </div>
-
+            <div id="favorite-container" class="container flex column hide">
+                <h1 class="dark-txt">Favorites</h1>
+                <div id="favorite-wrapper" class="feed flex wrap">
+                    
+                </div>
+            </div>
         </div>
-    
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
