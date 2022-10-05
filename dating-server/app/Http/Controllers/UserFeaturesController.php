@@ -114,5 +114,21 @@ class UserFeaturesController extends Controller{
         }
     }
 
+    function send_message(Request $request){
+        $message = Message::create([
+            "sender_id"=>$request->sender_id,
+            "receiver_id"=>$request->receiver_id,
+            "message_content"=>$request->message_content
+        ]);
 
+        if($message->save()){
+            return response()->json([
+                "status" => "success"
+            ]);
+        }else{
+            return response()->json([
+                "status" => "failed"
+            ]);
+        }
+    }
 }
