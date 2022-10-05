@@ -186,3 +186,22 @@ pages.load_home = async () => {
         })
     });
 }
+
+pages.load_show_user = async () => {
+const full_name = document.getElementById("full-name");
+const username = document.getElementById("username");
+const bio = document.getElementById("bio");
+const gender = document.getElementById("gender");
+const interest = document.getElementById("interest");
+const locations = document.getElementById("location");
+const user_info_url = `${pages.baseURL}/user_info`;
+
+const clicked_user_id = localStorage.getItem("clicked_id");
+
+const clicked_user_data = URLSearchParams();
+clicked_user_data.append("clicked_id",clicked_user_id)
+
+const response = await pages.postAPI(user_info_url,clicked_user_data);
+
+
+}
