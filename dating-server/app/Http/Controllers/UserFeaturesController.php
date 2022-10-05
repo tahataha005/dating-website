@@ -92,4 +92,29 @@ class UserFeaturesController extends Controller{
 
         return response()->json($user_info);
     }
+
+    function add_block(Request $request){
+
+        $user = User::select("id")
+        ->where("username",$request->username)
+        ->get();
+
+        $user_id = $user[0]->id;
+        $blocked_id = $request->clicked_id;
+    
+        $block = Block::create([
+            "blocker_id" => $user_id,
+            "blocked_id" => $blocked_id
+        ]);
+        
+        if($block->save()){
+            return response()->json([
+                "status" => "success"
+            ]);
+        }else{
+            return response()->json([
+                "status" => "failed"
+            ]);
+        }
+    }
 }
