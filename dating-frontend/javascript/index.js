@@ -153,6 +153,7 @@ pages.load_home = async () => {
     const home_wrapper = document.getElementById("home-wrapper");
     const favorite_wrapper = document.getElementById("home-wrapper");
     const load_interested_url = `${pages.baseURL}/home`;
+    const load_favorites_url = `${pages.baseURL}/get_favorites`;
     const add_favrite_url = `${pages.baseURL}/favorite`;
     const username = localStorage.getItem("username");
     const home_btn = document.getElementById("home-btn");
@@ -192,7 +193,7 @@ pages.load_home = async () => {
         })
     });
 
-    favorite_btn.addEventListener("click", () => {
+    favorite_btn.addEventListener("click", async () => {
         favorite_btn.classList.remove("white-bg","dark-txt");
         favorite_btn.classList.add("medium-bg","white-txt");
         home_btn.classList.remove("medium-bg","white-txt");
@@ -202,6 +203,12 @@ pages.load_home = async () => {
         home_container.classList.add("hide");
         favorite_container.classList.remove("hide");
 
+        const favorites_api_data = new URLSearchParams();
+        const username = localStorage.getItem("username");
+        favorites_api_data.append("username",username);
+        const favorites = await pages.postAPI(load_favorites_url,favorites_api_data);
+
+        console.log(favorites);
         
     })
 
