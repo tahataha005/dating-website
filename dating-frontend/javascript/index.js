@@ -154,6 +154,9 @@ pages.load_home = async () => {
     const load_interested_url = `${pages.baseURL}/home`;
     const add_favrite_url = `${pages.baseURL}/favorite`;
     const username = localStorage.getItem("username");
+    const home_btn = document.getElementById("home-btn");
+    const favorite_btn = document.getElementById("favorite-btn");
+    const profile_btn = document.getElementById("profile-btn");
     
     const load_data = new URLSearchParams;
     load_data.append("username",username);
@@ -185,6 +188,33 @@ pages.load_home = async () => {
             console.log(response)
         })
     });
+
+    favorite_btn.addEventListener("click", () => {
+        favorite_btn.classList.remove("white-bg","dark-txt");
+        favorite_btn.classList.add("medium-bg","white-txt");
+        home_btn.classList.remove("medium-bg","white-txt");
+        home_btn.classList.add("white-bg","dark-txt");
+        profile_btn.classList.remove("medium-bg","white-txt");
+        profile_btn.classList.add("white-bg","dark-txt");  
+    })
+
+    profile_btn.addEventListener("click", () => {
+        profile_btn.classList.remove("white-bg","dark-txt");
+        profile_btn.classList.add("medium-bg","white-txt");
+        favorite_btn.classList.remove("medium-bg","white-txt");
+        favorite_btn.classList.add("white-bg","dark-txt");
+        home_btn.classList.remove("medium-bg","white-txt");
+        home_btn.classList.add("white-bg","dark-txt");  
+    })
+
+    home_btn.addEventListener("click", () => {
+        home_btn.classList.remove("white-bg","dark-txt");
+        home_btn.classList.add("medium-bg","white-txt");
+        favorite_btn.classList.remove("medium-bg","white-txt");
+        favorite_btn.classList.add("white-bg","dark-txt");
+        profile_btn.classList.remove("medium-bg","white-txt");
+        profile_btn.classList.add("white-bg","dark-txt");  
+    })
 }
 
 pages.load_show_user = async () => {
