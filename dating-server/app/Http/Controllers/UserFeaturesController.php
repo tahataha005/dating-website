@@ -74,15 +74,14 @@ class UserFeaturesController extends Controller{
         ->where("users_id",$user_id[0]->id)
         ->get();
 
-        $users = [];
         for($i = 0;$i < count($favorite_ids); $i++){
             $id = $favorite_ids[$i]->favorite_id;
-            $users[] = User::select("*")
+            $users = User::select("*")
             ->where("id",$id)
             ->get(); 
-            
         }
-        return response()->json($users);
+        
+        return $users;
     }
 
     function get_user(Request $request){

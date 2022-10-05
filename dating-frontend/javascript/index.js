@@ -151,7 +151,7 @@ pages.load_register = async () => {
 
 pages.load_home = async () => {
     const home_wrapper = document.getElementById("home-wrapper");
-    const favorite_wrapper = document.getElementById("home-wrapper");
+    const favorite_wrapper = document.getElementById("favorite-wrapper");
     const load_interested_url = `${pages.baseURL}/home`;
     const load_favorites_url = `${pages.baseURL}/get_favorites`;
     const add_favrite_url = `${pages.baseURL}/favorite`;
@@ -189,7 +189,6 @@ pages.load_home = async () => {
             fav_data.append("fav_id",fav_id);
 
             const response = await pages.postAPI(add_favrite_url,fav_data);
-            console.log(response)
         })
     });
 
@@ -206,9 +205,10 @@ pages.load_home = async () => {
         const favorites_api_data = new URLSearchParams();
         const username = localStorage.getItem("username");
         favorites_api_data.append("username",username);
-        const favorites = await pages.postAPI(load_favorites_url,favorites_api_data);
-
-        console.log(favorites);
+        const favorite_response = await pages.postAPI(load_favorites_url,favorites_api_data);
+        const favorite_users = favorite_response.data;
+        console.log(favorite_users);
+        load_user_cards(favorite_users,favorite_wrapper);
         
     })
 
@@ -228,8 +228,11 @@ pages.load_home = async () => {
         favorite_btn.classList.add("white-bg","dark-txt");
         profile_btn.classList.remove("medium-bg","white-txt");
         profile_btn.classList.add("white-bg","dark-txt");
+        
         home_container.classList.remove("hide");
         favorite_container.classList.add("hide");
+
+        favorite_wrapper.innerHTML = "";
     })
 }
 
@@ -249,7 +252,6 @@ pages.load_show_user = async () => {
     clicked_user_data.append("clicked_id",clicked_user_id)
     
     const response = await pages.postAPI(user_info_url,clicked_user_data);
-    console.log(response)
     
     const user_info = response.data[0];
     full_name.innerHTML = user_info.full_name;
