@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('favorites', function (Blueprint $table) {
-            $table->foreignId("users_id")->nullable()->constrained("id")->on("users");
-            $table->foreignId("favorite_id")->nullable()->constrained("id")->on("users");
+            $table->integer("users_id");
+            $table->integer("favorite_id");
+            $table->timestamps();
         });
     }
 
