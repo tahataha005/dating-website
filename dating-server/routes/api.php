@@ -11,4 +11,14 @@ Route::group(["prefix"=>"register"],function(){
 });
 
 Route::post("/home",[UserFeaturesController::class,"load_interested_users"]);
-Route::post("/favorite",[UserFeaturesController::class,"add_favorite"]);
+Route::post("/favorite",[UserFeaturesController::class,"toggle_favorite"]);
+Route::post("/user_info",[UserFeaturesController::class,"get_user"]);
+Route::post("/get_favorites",[UserFeaturesController::class,"get_favorites"]);
+Route::post("/block",[UserFeaturesController::class,"add_block"]);
+Route::post("/send_message",[UserFeaturesController::class,"send_message"]);
+Route::post("/receive_messages",[UserFeaturesController::class,"receive_messages"]);
+Route::post("/edit_profile",[UserFeaturesController::class,"edit_profile"]);
+
+
+
+
