@@ -161,6 +161,17 @@ pages.load_home = async () => {
     load_user_cards(interested_users.data,wrapper);
     
     const view_btns = document.querySelectorAll(".view-btn");
+
+    view_btns.forEach(view =>{
+        view.addEventListener("click", () => {
+            
+            const clicked_id = view.getAttribute("data-value");
+            localStorage.setItem("clicked_id",clicked_id);
+            window.location.href="./show_user.html";
+
+        })
+    })
+
     const fav_btns = document.querySelectorAll(".fav-btn");
 
     fav_btns.forEach(fav => {
