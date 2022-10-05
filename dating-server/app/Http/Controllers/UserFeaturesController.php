@@ -147,4 +147,24 @@ class UserFeaturesController extends Controller{
 
         return response()->json([$messages]);
     }
+
+    function edit_profile(Request $request){
+
+        $update_details = [
+            "full_name" => $request->full_name,
+            "username" =>$request->username,
+            "password" => $request->password,
+            "age" => $request->age,
+            "gender" => $request->gender,
+            "interested" => $request->interested,
+            "location" => $request->location,
+            "picture" => $request->picture,
+            "bio" => $request->bio,
+            "incognito" => $request->incognito
+        ];
+
+        $user = User::select("*")
+        ->where("username",$request->old_username)
+        ->update($update_details);
+    }
 }
