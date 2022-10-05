@@ -11,3 +11,4 @@ Route::group(["prefix"=>"register"],function(){
 });
 
 Route::post("/home",[UserFeaturesController::class,"load_interested_users"]);
+Route::post("/favorite",[UserFeaturesController::class,"add_favorite"]);
