@@ -150,15 +150,22 @@ pages.load_register = async () => {
 }
 
 pages.load_home = async () => {
-    const wrapper = document.getElementById("wrapper");
+    const home_wrapper = document.getElementById("home-wrapper");
+    const favorite_wrapper = document.getElementById("home-wrapper");
     const load_interested_url = `${pages.baseURL}/home`;
+    const load_favorites_url = `${pages.baseURL}/get_favorites`;
     const add_favrite_url = `${pages.baseURL}/favorite`;
     const username = localStorage.getItem("username");
+    const home_btn = document.getElementById("home-btn");
+    const favorite_btn = document.getElementById("favorite-btn");
+    const profile_btn = document.getElementById("profile-btn");
+    const home_container = document.getElementById("home-container");
+    const favorite_container = document.getElementById("favorite-container");
     
     const load_data = new URLSearchParams;
     load_data.append("username",username);
     const interested_users = await pages.postAPI(load_interested_url,load_data);
-    load_user_cards(interested_users.data,wrapper);
+    load_user_cards(interested_users.data,home_wrapper);
     
     const view_btns = document.querySelectorAll(".view-btn");
 
@@ -185,6 +192,45 @@ pages.load_home = async () => {
             console.log(response)
         })
     });
+
+    favorite_btn.addEventListener("click", async () => {
+        favorite_btn.classList.remove("white-bg","dark-txt");
+        favorite_btn.classList.add("medium-bg","white-txt");
+        home_btn.classList.remove("medium-bg","white-txt");
+        home_btn.classList.add("white-bg","dark-txt");
+        profile_btn.classList.remove("medium-bg","white-txt");
+        profile_btn.classList.add("white-bg","dark-txt");
+        home_container.classList.add("hide");
+        favorite_container.classList.remove("hide");
+
+        const favorites_api_data = new URLSearchParams();
+        const username = localStorage.getItem("username");
+        favorites_api_data.append("username",username);
+        const favorites = await pages.postAPI(load_favorites_url,favorites_api_data);
+
+        console.log(favorites);
+        
+    })
+
+    profile_btn.addEventListener("click", () => {
+        profile_btn.classList.remove("white-bg","dark-txt");
+        profile_btn.classList.add("medium-bg","white-txt");
+        favorite_btn.classList.remove("medium-bg","white-txt");
+        favorite_btn.classList.add("white-bg","dark-txt");
+        home_btn.classList.remove("medium-bg","white-txt");
+        home_btn.classList.add("white-bg","dark-txt");
+    })
+
+    home_btn.addEventListener("click", () => {
+        home_btn.classList.remove("white-bg","dark-txt");
+        home_btn.classList.add("medium-bg","white-txt");
+        favorite_btn.classList.remove("medium-bg","white-txt");
+        favorite_btn.classList.add("white-bg","dark-txt");
+        profile_btn.classList.remove("medium-bg","white-txt");
+        profile_btn.classList.add("white-bg","dark-txt");
+        home_container.classList.remove("hide");
+        favorite_container.classList.add("hide");
+    })
 }
 
 pages.load_show_user = async () => {
@@ -194,6 +240,7 @@ pages.load_show_user = async () => {
     const gender = document.getElementById("gender");
     const interest = document.getElementById("interest");
     const location = document.getElementById("location");
+    const profile_name = document.getElementById("profile-name");
     const user_info_url = `${pages.baseURL}/user_info`;
     
     const clicked_user_id = localStorage.getItem("clicked_id");
@@ -211,4 +258,5 @@ pages.load_show_user = async () => {
     gender.innerHTML = user_info.gender;
     interest.innerHTML = user_info.interested;
     location.innerHTML = user_info.location;
+    profile_name.innerHTML = user_info.username;
 }
